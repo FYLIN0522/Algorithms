@@ -1,3 +1,4 @@
+##==== Question 1 Converters ============================================================
 def bfs_tree(adj_list, start):
     length = len(adj_list)
     n = adj_list
@@ -20,59 +21,58 @@ def bfs_loop(n, q, state, parent):
         state[u] = 'P'
         
     return parent
-##
-##
-##def treepath(parent, s, t):
-##    if s == t:
-##        return [s]
-##    else:
-##        return [t] + treepath(parent, s, parent[t])
-##
-##
-##def format_sequence(converters_info, source_format, destination_format):
-##    converters_info = converters_info.replace("\n"," ")
-##    converters_info = converters_info.split(" ")
-##    converters_info.pop()
-##    res_list = []
-##    length = len(converters_info)
-##    found = False
-##    res = []
-##    
-##    for i in range(int(converters_info[1])):
-##        res_list.append([])
-##        
-##
-##    j = 2 
-##    while j <= length - 2:
-##        j_E = converters_info[j + 1]
-##        res_list[int(converters_info[j])] += [int(j_E)]
-##        
-##        if destination_format == int(j_E):
-##            found = True
-##            index = int(converters_info[j])
-##        
-##        j += 2
-##        j_E = 0
-##    
-##    if source_format == destination_format:
-##        return [destination_format]
-##
-##    elif destination_format in res_list[source_format]:
-##        return[source_format, destination_format] 
-##
-##    elif found:
-##        parent = bfs_tree(res_list, source_format)
-##        res += treepath(parent, source_format, destination_format)
-##        res = res[::-1]
-##        
-##    else:
-##        return "No solution!"
-##
-##    
-##    return res
-##
-##
-##
+
+
+def treepath(parent, s, t):
+    if s == t:
+        return [s]
+    else:
+        return [t] + treepath(parent, s, parent[t])
+
+
+def format_sequence(converters_info, source_format, destination_format):
+    converters_info = converters_info.replace("\n"," ")
+    converters_info = converters_info.split(" ")
+    converters_info.pop()
+    res_list = []
+    length = len(converters_info)
+    found = False
+    res = []
+    
+    for i in range(int(converters_info[1])):
+        res_list.append([])
+        
+
+    j = 2 
+    while j <= length - 2:
+        j_E = converters_info[j + 1]
+        res_list[int(converters_info[j])] += [int(j_E)]
+        
+        if destination_format == int(j_E):
+            found = True
+            index = int(converters_info[j])
+        
+        j += 2
+        j_E = 0
+    
+    if source_format == destination_format:
+        return [destination_format]
+
+    elif destination_format in res_list[source_format]:
+        return[source_format, destination_format] 
+
+    elif found:
+        parent = bfs_tree(res_list, source_format)
+        res += treepath(parent, source_format, destination_format)
+        res = res[::-1]
+        
+    else:
+        return "No solution!"
+
+    
+    return res
+
+#### Testing
 ####[1, 3, 0]
 ####True
 ####[4]
@@ -156,7 +156,7 @@ def bfs_loop(n, q, state, parent):
 
 
 
-
+##==== Question 2 Bubbles ===========================================================
 def bfs_tree(adj_list, start):
     length = len(adj_list)
     n = adj_list
@@ -237,7 +237,7 @@ def bubbles(physical_contact_info):
     return res
 
 
-
+#### Testing
 ##physical_contact_info = """\
 ##U 2
 ##0 1
@@ -295,7 +295,8 @@ def bubbles(physical_contact_info):
 
 
 
-
+####==== Question 3 Package management
+ ===========================================================
 def dfs_tree(adj_list, start):
     length = len(adj_list)
     n = adj_list
@@ -352,7 +353,7 @@ def build_order(dependencies):
 
     
     return res
-
+#### Testing
 ##dependencies = """\
 ##D 6
 ##0 2
@@ -415,7 +416,7 @@ def build_order(dependencies):
 
 
 
-
+####===== Question 4 Snow ===========================================================
 def next_vertex(in_tree, distance):
     v_list = [] 
     next_vertex = None
@@ -494,7 +495,7 @@ def which_segments(city_map):
         
     return res
 
-
+#### Testing
 ##city_map = """\
 ##U 3 W
 ##0 1 1
@@ -542,6 +543,7 @@ def which_segments(city_map):
 
 
 
+##==== Question 5 Batteries ============================================================
 import math
 def next_vertex(in_tree, distance):
     v_list = [] 
@@ -626,6 +628,7 @@ def min_capacity(city_map, depot_position):
 ##1400
 ##1400
 ##800
+
 ##city_map = """\
 ##U 3 W
 ##0 1 3
@@ -684,32 +687,6 @@ def min_capacity(city_map, depot_position):
 ##print(min_capacity(city_map, 810))
 ##print(min_capacity(city_map, 820))
 ##print(min_capacity(city_map, 890))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
