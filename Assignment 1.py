@@ -295,8 +295,7 @@ def bubbles(physical_contact_info):
 
 
 
-####==== Question 3 Package management
- ===========================================================
+####==== Question 3 Package management ===========================================================
 def dfs_tree(adj_list, start):
     length = len(adj_list)
     n = adj_list
